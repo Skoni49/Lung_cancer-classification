@@ -55,7 +55,9 @@ export default function UploadPage() {
             response.status
         );
       }
-      return await response.json();
+      const result = await response.json();
+      console.log("Prediction Response:", result); // <--- طباعة الريسبونس هنا
+      return result;
     } catch (error) {
       console.error("Fetch error:", error);
       if (error instanceof Error) {
@@ -148,7 +150,7 @@ export default function UploadPage() {
             <Microscope className="h-7 w-7 mx-2" />
             <span className="text-xl font-bold">LungScan AI</span>
           </div>
-          
+
           <div className="flex flex-1 items-center justify-end space-x-4">
             <nav className="flex items-center space-x-2">
               <Link href="/">
@@ -177,7 +179,6 @@ export default function UploadPage() {
                 }}
               />
             </div>
-
           </div>
         </div>
       </header>
