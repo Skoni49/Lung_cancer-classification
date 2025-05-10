@@ -23,6 +23,7 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { Badge } from "@/components/ui/badge";
+import { UserButton } from "@clerk/nextjs";
 
 export default function Home() {
   return (
@@ -48,6 +49,21 @@ export default function Home() {
                 </Button>
               </Link>
             </nav>
+            <div className="flex items-center absolute right-9">
+              <UserButton
+                afterSignOutUrl="/"
+                appearance={{
+                  elements: {
+                    avatarBox: {
+                      width: "32px",
+                      height: "32px",
+                    },
+                  },
+                }}
+              />
+            </div>
+
+
           </div>
         </div>
       </header>

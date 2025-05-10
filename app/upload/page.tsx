@@ -30,6 +30,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
+import { UserButton } from "@clerk/nextjs";
 
 export default function UploadPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -147,6 +148,7 @@ export default function UploadPage() {
             <Microscope className="h-7 w-7 mx-2" />
             <span className="text-xl font-bold">LungScan AI</span>
           </div>
+          
           <div className="flex flex-1 items-center justify-end space-x-4">
             <nav className="flex items-center space-x-2">
               <Link href="/">
@@ -162,6 +164,20 @@ export default function UploadPage() {
                 </Button>
               </Link>
             </nav>
+            <div className="flex items-center absolute right-9">
+              <UserButton
+                afterSignOutUrl="/"
+                appearance={{
+                  elements: {
+                    avatarBox: {
+                      width: "32px",
+                      height: "32px",
+                    },
+                  },
+                }}
+              />
+            </div>
+
           </div>
         </div>
       </header>
