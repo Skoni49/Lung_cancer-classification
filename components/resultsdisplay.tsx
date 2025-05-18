@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 
@@ -171,7 +170,7 @@ export function ResultsDisplay({ results, imageUrl }: ResultsDisplayProps) {
                   <strong>Note:</strong> This AI analysis is intended to assist
                   medical professionals and should not replace professional
                   medical diagnosis. The confidence scores indicate the AI
-                  model's certainty in its assessment.
+                  model&apos;s certainty in its assessment.
                 </p>
               </div>
             </CardContent>
