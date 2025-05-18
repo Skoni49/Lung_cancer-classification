@@ -4,19 +4,13 @@ import { useState, useRef, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Image from "next/image";
 
 interface ResultsDisplayProps {
   results: {
+    accuracy: number;
+    result_message: string;
     classification: string;
-    confidence: number;
-    areas?: Array<{
-      x: number;
-      y: number;
-      width: number;
-      height: number;
-      confidence: number;
-    }>;
-    recommendations: string;
   };
   imageUrl: string | null;
 }
@@ -69,7 +63,7 @@ export function ResultsDisplay({ results, imageUrl }: ResultsDisplayProps) {
   }, [imageUrl, results]);
 
   // Format confidence as percentage
-  const confidencePercent = (results.confidence * 100).toFixed(1);
+  const confidencePercent = (results.accuracy * 100).toFixed(1);
 
   // Determine classification color
   const classificationColor =
@@ -83,14 +77,17 @@ export function ResultsDisplay({ results, imageUrl }: ResultsDisplayProps) {
     <div className="space-y-6">
       <div className="flex flex-wrap gap-4 items-center">
         <div>
-          <h3 className="text-lg font-medium">Classification:</h3>
-          <div className="flex items-center gap-2 mt-1">
-            <Badge variant={classificationColor} className="text-md py-1 px-3">
-              {results.classification}
-            </Badge>
-            <span className="text-sm text-muted-foreground">
-              Confidence: {confidencePercent}%
-            </span>
+          <div className="flex flex-col gap-2 mt-1">
+            <p className="text-sm text-green-600 font-medium">
+              Confidence:{" "}
+              <span className="text-muted-foreground">{results.accuracy}%</span>
+            </p>
+            <p className="text-sm text-red-600 font-medium">
+              Result:{" "}
+              <span className="text-muted-foreground">
+                {results.result_message}
+              </span>
+            </p>
           </div>
         </div>
       </div>
@@ -109,7 +106,14 @@ export function ResultsDisplay({ results, imageUrl }: ResultsDisplayProps) {
           <Card>
             <CardContent className="p-4">
               <div className="relative border rounded-md overflow-hidden">
-                <canvas ref={canvasRef} className="max-w-full h-auto" />
+                <Image
+                  src={imageUrl!}
+                  alt="Lung Image"
+                  width={300}
+                  height={300}
+                  className="w-full h-auto"
+                />
+                {/* <canvas ref={canvasRef} className="max-w-full h-auto" />
                 {results.areas && results.areas.length > 0 && (
                   <div className="mt-2 text-sm text-muted-foreground">
                     <p>
@@ -117,7 +121,7 @@ export function ResultsDisplay({ results, imageUrl }: ResultsDisplayProps) {
                       {results.areas.length > 1 ? "s" : ""} detected
                     </p>
                   </div>
-                )}
+                )} */}
               </div>
             </CardContent>
           </Card>
@@ -129,24 +133,22 @@ export function ResultsDisplay({ results, imageUrl }: ResultsDisplayProps) {
                 <h4 className="font-medium">Classification Details</h4>
                 <div className="grid grid-cols-2 gap-2 mt-2">
                   <div className="text-sm">
-                    <span className="text-muted-foreground">Type:</span>
+                    <span className="text-red-600">Type:</span>
                     <span className="ml-2 font-medium">
-                      {results.classification}
+                      {results.result_message}
                     </span>
                   </div>
                   <div className="text-sm">
-                    <span className="text-muted-foreground">Confidence:</span>
+                    <span className=" text-green-600">Confidence:</span>
                     <span className="ml-2 font-medium">
-                      {confidencePercent}%
+                      {results.accuracy || 0}
                     </span>
                   </div>
                   <div className="text-sm">
                     <span className="text-muted-foreground">
                       Detected Areas:
                     </span>
-                    <span className="ml-2 font-medium">
-                      {results.areas?.length || 0}
-                    </span>
+                    <span className="ml-2 font-medium">{}</span>
                   </div>
                   <div className="text-sm">
                     <span className="text-muted-foreground">
@@ -161,7 +163,7 @@ export function ResultsDisplay({ results, imageUrl }: ResultsDisplayProps) {
 
               <div>
                 <h4 className="font-medium">Recommendations</h4>
-                <p className="text-sm mt-2">{results.recommendations}</p>
+                <p className="text-sm mt-2">{}</p>
               </div>
 
               <div className="bg-muted p-3 rounded-md">

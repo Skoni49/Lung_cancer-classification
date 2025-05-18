@@ -37,7 +37,10 @@ export default function UploadPage() {
   const [preview, setPreview] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [results, setResults] = useState<any | null>(null);
+  const [results, setResults] = useState<{
+    accuracy: number;
+    result_message: string;
+  } | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   // New function to post the image to the prediction endpoint with improved error handling
@@ -49,23 +52,25 @@ export default function UploadPage() {
         body: formData,
         mode: "cors",
       });
-      if (!response.ok) {
+
+      const result = await response.json();
+
+      // Check if the API responded with an error detail
+      if (!response.ok || result.detail || result.error) {
         throw new Error(
-          "Failed to predict the image. Server responded with " +
-            response.status
+          result.detail || result.error || "Unknown error occurred."
         );
       }
-      const result = await response.json();
-      console.log("Prediction Response:", result); // <--- طباعة الريسبونس هنا
+
+      console.log("Prediction Response:", result);
+      setResults(result);
       return result;
     } catch (error) {
       console.error("Fetch error:", error);
       if (error instanceof Error) {
-        console.error("Error message:", error.message);
+        throw new Error(error.message);
       }
-      throw new Error(
-        "An error occurred while connecting to the prediction service."
-      );
+      throw new Error("An unknown error occurred.");
     }
   };
 
