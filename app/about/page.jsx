@@ -112,7 +112,7 @@ export default function AboutPage() {
                                     <div className="relative">
                                         <div className="absolute inset-0 bg-gradient-to-r from-slate-100 to-slate-50 rounded-3xl -z-10 dark:from-slate-800 dark:to-slate-900"></div>
                                         <img
-                                            src="/placeholder.svg?height=400&width=500"
+                                            src="/IT.png?height=400&width=500"
                                             width={500}
                                             height={400}
                                             alt="AI technology visualization"
@@ -440,9 +440,10 @@ export default function AboutPage() {
                         <Link href="/privacy" className="text-sm text-muted-foreground hover:underline">
                             Privacy
                         </Link>
-                        <Link href="/contact" className="text-sm text-muted-foreground hover:underline">
+                        <a href="mailto:your-email@example.com" className="text-sm text-muted-foreground hover:underline">
                             Contact
-                        </Link>
+                        </a>
+
                     </div>
                 </div>
             </footer>

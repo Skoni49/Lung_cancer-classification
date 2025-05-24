@@ -436,7 +436,7 @@ export default function UploadPage() {
               Privacy
             </Link>
             <Link
-              href="/contact"
+              href="https://oussama.pages.dev/"
               className="text-sm text-muted-foreground hover:underline"
             >
               Contact

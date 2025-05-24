@@ -62,8 +62,6 @@ export default function Home() {
                 }}
               />
             </div>
-
-
           </div>
         </div>
       </header>
@@ -357,7 +355,7 @@ export default function Home() {
               Privacy
             </Link>
             <Link
-              href="/contact"
+              href="https://t.me/Smail_Oussama"
               className="text-sm text-muted-foreground hover:underline"
             >
               Contact
