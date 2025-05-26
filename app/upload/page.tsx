@@ -49,8 +49,7 @@ export default function UploadPage() {
       const apiUrl =
         process.env.NEXT_PUBLIC_API_URL ||
         "http://127.0.0.1:8000" ||
-        "https://a6b8-41-111-191-66.ngrok-free.app/docs" ||
-        "https://d15d-41-111-191-66.ngrok-free.app";
+        "https://a6b8-41-111-191-66.ngrok-free.app/docs";
       const response = await fetch(`${apiUrl}/predict`, {
         method: "POST",
         body: formData,
