@@ -46,7 +46,7 @@ export default function UploadPage() {
   // New function to post the image to the prediction endpoint with improved error handling
   const postImageForPrediction = async (formData: FormData) => {
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
       const response = await fetch(`${apiUrl}/predict`, {
         method: "POST",
         body: formData,
