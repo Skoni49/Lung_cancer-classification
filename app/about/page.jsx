@@ -171,7 +171,7 @@ export default function AboutPage() {
 
                             <TabsContent value="team">
                                 <div className="text-center mb-10">
-                                    <h2 className="text-2xl font-bold tracking-tighter md:text-3xl mb-4">Our Expert Team</h2>
+                                    <h2 className="text-2xl font-bold tracking-tighter md:text-3xl mb-4">Our Team</h2>
                                     <p className="max-w-[800px] mx-auto text-muted-foreground text-lg">
                                         LungScan AI brings together experts in artificial intelligence, medical imaging, and oncology to
                                         create cutting-edge diagnostic tools.

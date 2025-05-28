@@ -327,7 +327,7 @@ export default function UploadPage() {
                       <li className="flex gap-2">
                         <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0" />
                         <span>
-                          Use high-resolution scans (minimum 1024x1024 pixels)
+                          Use high-resolution scans (minimum 224 x 224 pixels)
                         </span>
                       </li>
                       <li className="flex gap-2">
@@ -353,7 +353,7 @@ export default function UploadPage() {
 
                     <h3 className="font-medium">Supported File Types:</h3>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2">
-                      {["JPEG", "PNG", "DICOM", "TIFF"].map((format) => (
+                      {["JPEG", "PNG", "DICOM", "JPG"].map((format) => (
                         <div
                           key={format}
                           className="flex items-center gap-2 p-3 border rounded-md"
