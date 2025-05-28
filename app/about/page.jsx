@@ -181,22 +181,22 @@ export default function AboutPage() {
                                 <div className="grid md:grid-cols-3 gap-6">
                                     {[
                                         {
-                                            name: "Dr. Sarah Chen",
+                                            name: "KHALDI LOUBNA",
+                                            role: "AI Researcher",
+                                            icon: <img src="./loubna.jpg" className="h-20 w-20 text-primary rounded-full zoom-in-0" />,
+                                            bio: "Master student in Computer Science with specialization in deep learning architectures.",
+                                        },
+                                        {
+                                            name: "SMAIL OUSSAMA",
+                                            role: "AI Researcher",
+                                            icon: <img src="./oussam1.jpg" className="h-20 w-20 text-primary rounded-full" />,
+                                            bio: "Master student in Computer Science with specialization in deep learning architectures.",
+                                        },
+                                        {
+                                            name: "Dr.XXXXXXXX",
                                             role: "Chief Medical Officer",
                                             icon: <Users className="h-6 w-6 text-primary" />,
                                             bio: "Board-certified radiologist with 15 years of experience in thoracic imaging and early cancer detection.",
-                                        },
-                                        {
-                                            name: "Dr. Michael Rodriguez",
-                                            role: "AI Research Director",
-                                            icon: <Brain className="h-6 w-6 text-primary" />,
-                                            bio: "PhD in Computer Science with specialization in medical image analysis and deep learning architectures.",
-                                        },
-                                        {
-                                            name: "Dr. Emily Johnson",
-                                            role: "Clinical Integration Lead",
-                                            icon: <Building className="h-6 w-6 text-primary" />,
-                                            bio: "Oncologist focused on integrating AI tools into clinical workflows and improving patient outcomes.",
                                         },
                                     ].map((person, i) => (
                                         <Card key={i}>
@@ -217,7 +217,7 @@ export default function AboutPage() {
                                 <div className="mt-12 text-center">
                                     <h3 className="text-xl font-bold mb-4">Our Partners</h3>
                                     <div className="flex flex-wrap justify-center gap-8 mt-6">
-                                        {["University Medical Center", "National Cancer Institute", "Global AI Research"].map(
+                                        {["University of Adrar", " Incubator Adrar", "CAC"].map(
                                             (partner, i) => (
                                                 <div key={i} className="flex items-center gap-2 p-4 border rounded-lg min-w-[200px]">
                                                     <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center">
@@ -233,7 +233,7 @@ export default function AboutPage() {
 
                             <TabsContent value="research">
                                 <div className="text-center mb-10">
-                                    <h2 className="text-2xl font-bold tracking-tighter md:text-3xl mb-4">Our Research</h2>
+                                    <h2 className="text-2xl font-bold tracking-tighter md:text-3xl mb-4">New Research</h2>
                                     <p className="max-w-[800px] mx-auto text-muted-foreground text-lg">
                                         LungScan AI is built on rigorous research and continuous improvement through clinical validation.
                                     </p>
@@ -272,7 +272,7 @@ export default function AboutPage() {
                                         </CardContent>
                                         <CardFooter>
                                             <p className="text-sm text-muted-foreground">
-                                                Based on a study of 5,000+ patient scans across 12 medical centers.
+                                                Based on a study of 5,000+ patient scans across medical centers difference.
                                             </p>
                                         </CardFooter>
                                     </Card>
@@ -366,7 +366,7 @@ export default function AboutPage() {
                                 <div className="relative">
                                     <div className="absolute inset-0 bg-gradient-to-r from-slate-100 to-slate-50 rounded-3xl -z-10 dark:from-slate-800 dark:to-slate-900"></div>
                                     <img
-                                        src="/placeholder.svg?height=400&width=500"
+                                        src="/teams.png?height=400&width=500"
                                         width={500}
                                         height={400}
                                         alt="Medical team using LungScan AI"
@@ -440,9 +440,12 @@ export default function AboutPage() {
                         <Link href="/privacy" className="text-sm text-muted-foreground hover:underline">
                             Privacy
                         </Link>
-                        <a href="mailto:your-email@example.com" className="text-sm text-muted-foreground hover:underline">
+                        <Link
+                            href="https://t.me/Lou_bna01"
+                            className="text-sm text-muted-foreground hover:underline"
+                        >
                             Contact
-                        </a>
+                        </Link>
 
                     </div>
                 </div>
