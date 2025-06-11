@@ -278,7 +278,7 @@ export default function Home() {
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { stat: "95%", desc: "Accuracy in clinical trials" },
+                    { stat: "98%", desc: "Accuracy in clinical trials" },
                     { stat: "80%", desc: "Early detection improvement" },
                     { stat: "3x", desc: "Faster than manual review" },
                     { stat: "24/7", desc: "Availability for analysis" },
